@@ -7,7 +7,7 @@ export default
 //     ...auth
 //   };
 // })
-class LoginView extends React.Component {
+class HomeView extends React.Component {
   constructor(props: Readonly<{}>) {
     super(props);
     this.state = {
@@ -17,11 +17,10 @@ class LoginView extends React.Component {
   componentDidMount() {
     
   }
-
   render() {
     return (
       <div >
-       login 
+       home 
       </div>
     );
   }

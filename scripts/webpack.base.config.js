@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path');
 
 const config = require('../src/config')
@@ -39,6 +40,43 @@ module.exports = {
             test: /\.(ts|tsx)$/,
             loader: "ts-loader",
         },
+        {
+            test: /\.css$/,
+            use: [
+              MiniCssExtractPlugin.loader,
+              'css-loader'
+            ],
+            include: /node_modules/
+          },
+          {
+            test: /\.module\.css$/,
+            use: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
+                options: {
+                  import: true,
+                  modules: {
+                    localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                  },
+                  importLoaders: 1
+                }
+              },
+              'postcss-loader'
+            ],
+            include: /src/
+          },
+          {
+            test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg)$/,
+            use: [
+              {
+                loader: 'url-loader',
+                options: {
+                  name: '[name].[hash:8].[ext]'
+                }
+              }
+            ]
+          }
         ],
     },
     plugins: [

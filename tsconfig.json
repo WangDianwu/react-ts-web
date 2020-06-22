@@ -1,15 +1,18 @@
 {
     "include": ["src"],
     "compilerOptions": {
+        "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
         "jsx": "react",
         "lib": ["es6", "dom"],
         "module": "esnext",
         "moduleResolution": "node",
-        "noImplicitAny": true,
+        // "noImplicitAny": true,
         "rootDir": "src",
         "sourceMap": true,
         "strict": true,
+        "noEmit": false, 
+        "noImplicitThis": false, 
         "target": "es5"
     },
     "exclude": [
