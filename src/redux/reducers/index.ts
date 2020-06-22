@@ -2,7 +2,7 @@ const initialState = {
     number: 0
   };
   
-  const incrementReducer = (state = initialState, action) => {
+  const incrementReducer = (state = initialState, action: { type: any; }) => {
     switch(action.type) {
       case 'INCREMENT': {
         state.number += 1

@@ -7,8 +7,8 @@ export default
 //     ...auth
 //   };
 // })
-class LoginView extends React.Component {
-  constructor(props: Readonly<{}>) {
+class LoginView extends React.Component<any,any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       

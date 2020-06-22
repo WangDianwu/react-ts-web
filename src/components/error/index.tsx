@@ -1,8 +1,8 @@
 import React from 'react';
 import NotFound from './er404';
 
-export default class NoExist extends React.Component {
-  constructor(props) {
+export default class NoExist extends React.Component<any,any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       error: false

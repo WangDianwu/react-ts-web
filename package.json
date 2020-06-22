@@ -10,8 +10,11 @@
   "author": "wangdianwu",
   "license": "ISC",
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
     "@types/react": "16.9.38",
+    "@types/react-document-title": "^2.0.4",
     "@types/react-dom": "^16.9.8",
+    "@types/react-loadable": "^5.5.3",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "clean-webpack-plugin": "^3.0.0",
@@ -28,6 +31,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@types/react-router": "^5.1.8",
     "antd": "^4.3.4",
     "css-loader": "^3.6.0",
     "mini-css-extract-plugin": "^0.9.0",

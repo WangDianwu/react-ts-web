@@ -11,8 +11,9 @@ import getRoutes from './core/index';
 
 
 export default
-class RouteComponent extends React.Component {
+class RouteComponent extends React.Component<any,any> {
   render() {
+    debugger
     return (
       <Router>
         <Switch>
@@ -23,8 +24,9 @@ class RouteComponent extends React.Component {
   }
 }
 
-class AuthRoute extends React.Component <Props,{}> {
+class AuthRoute extends React.Component <any,any> {
   render() {
+    debugger
     const { location, userInfo } = this.props;
     const { pathname, search } = location;
     // props 传递的不准 重新获取
@@ -59,7 +61,7 @@ class AuthRoute extends React.Component <Props,{}> {
   }
 }
 
-class PermissionRoute extends React.Component {
+class PermissionRoute extends React.Component<any,any> {
   render() {
     return <Layout {...this.props}>{getRoutes()}</Layout>;
   }

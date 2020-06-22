@@ -2,11 +2,11 @@ import React from 'react';
 import { Result, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-export default class NoExist extends React.Component {
-  constructor(props: Readonly<{}>) {
-    super(props);
-    this.state = {};
-  }
+export default class NoExist extends React.Component<any,any> {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {};
+  // }
 
   render() {
     return (

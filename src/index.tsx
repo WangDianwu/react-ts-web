@@ -11,16 +11,16 @@ import RouteComponent from './router/index';
 
 const persistor = persistStore(store); // 持久化数据存储
 
-
 ReactDom.render (
   <ConfigProvider locale={zhCN}>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ErrorCompontent>
-        <RouteComponent />,
+          <RouteComponent />,
         </ErrorCompontent>
       </PersistGate>
     </Provider>
   </ConfigProvider>,
   document.getElementById('root')
 );
+

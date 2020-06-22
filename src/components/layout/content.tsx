@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 
 const { Content } = Layout;
 
-export default class ContentLayout extends React.Component {
+export default class ContentLayout extends React.Component<any,any> {
 //   constructor(props) {
 //     super(props);
 //     this.state = {

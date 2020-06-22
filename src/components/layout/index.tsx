@@ -6,7 +6,7 @@ import Header from './header';
 import Menu from './menu';
 import Content from './content';
 
-export default class Master extends React.Component {
+export default class Master extends React.Component<any,any> {
 //   constructor(props) {
 //     super(props);
 //     this.state = {};

@@ -1,9 +1,17 @@
 import React from 'react';
 import NProgress from 'nprogress';
 import { Skeleton, Result, Button } from 'antd';
+interface Props{
+  isLoading: boolean;
+  error: any;
+  pastDelay: any; 
+  timedOut: any;
+  retry: any;
 
-export default class Loading extends React.Component {
-  constructor(props) {
+}
+
+export default class Loading extends React.Component<Props> {
+  constructor(props: Readonly<Props>) {
     super(props);
     this.state = {};
   }
@@ -13,26 +21,17 @@ export default class Loading extends React.Component {
   };
 
   render() {
-    const { isLoading, error } = this.props;
-    let content = (
-      <Skeleton
+     const { isLoading, error } = this.props;
+    const code = `(加载失败)`;
+    const message = `加载资源失败)`;
+    return (
+      <div
         style={{
           height: '100%',
+          margin: '0 auto',
         }}
-      />
-    );
-    if (isLoading) {
-      NProgress.start();
-    }
-    if (!isLoading) {
-      content = null;
-      NProgress.done();
-    }
-    if (error != null) {
-      const code = `${error.code}(加载失败)`;
-      const message = `${error.message}(加载资源失败)`;
-      content = (
-        <Result
+      >
+       <Result
           status='error'
           title={code}
           subTitle={message}
@@ -42,17 +41,6 @@ export default class Loading extends React.Component {
             </Button>
           }
         />
-      );
-      NProgress.done();
-    }
-    return (
-      <div
-        style={{
-          height: '100%',
-          margin: '0 auto',
-        }}
-      >
-        {content}
       </div>
     );
   }

@@ -8,8 +8,8 @@ const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 export default
-class MenuLayout extends React.Component {
-  constructor(props) {
+class MenuLayout extends React.Component<any,any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       collapsed: false,
@@ -61,7 +61,7 @@ class MenuLayout extends React.Component {
   //   })
   // }
 
-  nav = (location, parent, child) => {
+  nav = (location: any, parent: { menuUrl: any; }, child: { menuUrl: any; } | null) => {
     return {
       ...location,
       pathname: child == null ? parent.menuUrl : child.menuUrl
@@ -74,12 +74,12 @@ class MenuLayout extends React.Component {
     const checkedSub: string[] | undefined = [];
     const checkedSubParent: string[] | undefined = [];
     let getMenuList = false;
-    const stairMenu = (menu || []).filter(i => i.menuState === 1)
-      .sort((a, b) => a.menuSort - b.menuSort);
-    const menuList = stairMenu.map(item => {
-      const accessMenu = (menu || []).filter(i => i.menuParent === item.menuNum)
-        .sort((a, b) => a.menuSort - b.menuSort);
-      const subMenus = accessMenu.map(sub => {
+    const stairMenu = (menu || []).filter((i: { menuState: number; }) => i.menuState === 1)
+      .sort((a: { menuSort: number; }, b: { menuSort: number; }) => a.menuSort - b.menuSort);
+    const menuList = stairMenu.map((item: { menuNum: any; menuName: any; menuUrl: any; }) => {
+      const accessMenu = (menu || []).filter((i: { menuParent: any; }) => i.menuParent === item.menuNum)
+        .sort((a: { menuSort: number; }, b: { menuSort: number; }) => a.menuSort - b.menuSort);
+      const subMenus = accessMenu.map((sub: { menuUrl: any;menuNum: any;menuParent: any; menuName: any;} ) => {
         if (sub.menuUrl === window.location.hash.split('#')[1]) {
           checkedSub.push(String(sub.menuNum));
           checkedSubParent.push(String(sub.menuParent));

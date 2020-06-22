@@ -7,8 +7,8 @@ export default
 //     ...auth
 //   };
 // })
-class HomeView extends React.Component {
-  constructor(props: Readonly<{}>) {
+class HomeView extends React.Component<any,any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       

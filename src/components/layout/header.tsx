@@ -9,7 +9,7 @@ const { Search } = Input;
 const { Header } = Layout;
 
 export default
-class HeaderLayout extends React.Component {
+class HeaderLayout extends React.Component<any,any> {
 //   constructor(props) {
 //     super(props);
 //     this.state = {
