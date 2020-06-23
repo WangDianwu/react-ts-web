@@ -7,6 +7,6 @@ export default [
     {
         path: '/',
         loader: () => import('../../pages/home/index'),
-        permission: false 
+        permission: true 
     }
 ]

@@ -3,7 +3,7 @@ import { Route, useParams, useHistory, useLocation } from 'react-router-dom';
 import routes from '../../config/routers/index';
 import DocumentTitle from 'react-document-title';   // 根据不同的路由改变文档的title
 
-// function CustomHandle({ Component }) {
+// function CustomHandle(Component }) {
 //   const parm = useParams();
 //   const history = useHistory();
 //   const location = useLocation();

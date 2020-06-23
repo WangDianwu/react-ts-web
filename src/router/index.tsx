@@ -13,7 +13,6 @@ import getRoutes from './core/index';
 export default
 class RouteComponent extends React.Component<any,any> {
   render() {
-    debugger
     return (
       <Router>
         <Switch>
@@ -26,7 +25,8 @@ class RouteComponent extends React.Component<any,any> {
 
 class AuthRoute extends React.Component <any,any> {
   render() {
-    debugger
+
+    return <PermissionRoute {...this.props} />;
     const { location, userInfo } = this.props;
     const { pathname, search } = location;
     // props 传递的不准 重新获取
