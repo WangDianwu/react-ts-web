@@ -1,7 +1,13 @@
-import { createStore } from 'redux';
-import incrementReducer from '../reducers/index';
+import { createStore ,applyMiddleware} from 'redux';
+import thunk from 'redux-thunk'
+import { routerMiddleware } from 'connected-react-router'
 
 
-const store = createStore(incrementReducer);
+import reducer from '../reducers/index';
+import history from '../reducers/history'
 
-export default store;
+const storeEnhancer = applyMiddleware(thunk, routerMiddleware(history))
+const storeEnhancerCreator = storeEnhancer(createStore)
+const store = storeEnhancerCreator(reducer)
+
+export default store

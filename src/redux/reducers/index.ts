@@ -1,15 +1,19 @@
-const initialState = {
-    number: 0
-  };
-  
-  const incrementReducer = (state = initialState, action: { type: any; }) => {
-    switch(action.type) {
-      case 'INCREMENT': {
-        state.number += 1
-        return { ...state }
-        break
-      };
-      default: return state;
-    }
-  };
-  export default incrementReducer;
+import { combineReducers, ReducersMapObject, AnyAction, Reducer } from 'redux'
+import { connectRouter, RouterState } from 'connected-react-router'
+import history from './history'
+import setuser ,{User_InfoState} from './setuserinfo'
+import setmenu ,{MenuState} from './setmenu'
+
+export interface ComState {
+  setuser:User_InfoState,
+  setmenu:MenuState
+}
+
+const reducers:ReducersMapObject<ComState,any> = {
+  setuser,
+  setmenu
+}
+
+const reducer: Reducer<ComState, AnyAction> = combineReducers(reducers)
+
+export default reducer
