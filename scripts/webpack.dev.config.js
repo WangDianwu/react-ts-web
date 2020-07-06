@@ -14,9 +14,9 @@ const devConfig = {
         open: true,
         inline: true,
         overlay: true,
-        watchOptions: {
-            ignored: /node_modules/,
-        },
+        // watchOptions: {
+        //     ignored: /node_modules/,
+        // },
         // 请求代理服务
         // proxy: {
         //   '/api': {
