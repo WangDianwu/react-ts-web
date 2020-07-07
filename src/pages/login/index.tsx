@@ -2,16 +2,24 @@ import React from 'react';
 import './style.scss';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-
-export default class LoginView extends React.Component<any, any> {
+import { connect, useDispatch } from 'react-redux';
+import { LOGIN } from '../../redux/models/auth'
+class LoginView extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
-    this.state = {};
+    this.state = {
+      param:{
+        username:'admin',
+        userpwd:111111,
+        remember:false
+      }
+    };
   }
   componentDidMount() {}
 
   onFinish = (val: any) => {
-    console.log('Received values of form: ', val);
+    const {dispatch } = this.props
+    dispatch({type:LOGIN,payload:val})
   };
 
   render() {
@@ -19,11 +27,11 @@ export default class LoginView extends React.Component<any, any> {
       <Form
         name="normal_login"
         className="login-form"
-        initialValues={{ remember: true }}
+        initialValues={this.state.param}
         onFinish={this.onFinish}
       >
         <Form.Item
-          name="账号"
+          name="username"
           rules={[{ required: true, message: '请输入账号!' }]}
         >
           <Input
@@ -32,7 +40,7 @@ export default class LoginView extends React.Component<any, any> {
           />
         </Form.Item>
         <Form.Item
-          name="密码"
+          name="userpwd"
           rules={[{ required: true, message: '请输入密码!' }]}
         >
           <Input
@@ -64,3 +72,8 @@ export default class LoginView extends React.Component<any, any> {
     );
   }
 }
+
+export default connect(({ global, auth}:any)=>({
+  ...global,
+  ...auth
+}))(LoginView)

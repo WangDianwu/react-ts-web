@@ -1,36 +1,41 @@
 /* eslint-disable import/no-dynamic-require */
 import React from 'react';
-import { Layout, Menu, Dropdown, Row, Col, Avatar, Input } from 'antd';
+import { Layout, Button, Input } from 'antd';
 import './style.scss'
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { LOGOUT } from '../../redux/models/auth'
 
 const { Search } = Input;
 const { Header } = Layout;
 
+ class HeaderLayout extends React.Component<any, any> {
+    constructor(props:any) {
+      super(props);
+      this.state = {
+      };
+    }
+  onClick =() => {
+    const { dispatch  } = this.props
+    dispatch({type:LOGOUT,payload:''})
+  }
 
-
-export default class HeaderLayout extends React.Component<any, any> {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //       userInfo: localStorage.getItem('userInfo'),
-  //       platType: ''
-  //     };
-  //   }
   render() {
     return (
       <Layout>
         <Header className="header">
           <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
-          </Menu>
+          <div className='head-msg'>
+            <span>个人信息</span>
+            <Button type="primary" onClick={this.onClick} >退出</Button>
+          </div>
         </Header>
       </Layout>
     );
   }
 }
+export default  connect(({ global, auth}:any)=>({
+  ...global,
+  ...auth
+}))(HeaderLayout)

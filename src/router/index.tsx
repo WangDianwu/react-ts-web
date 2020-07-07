@@ -9,8 +9,12 @@ import { connect } from 'react-redux';
 import { WHITE_LIST} from '../constants/index';
 import getRoutes from './core/index';
 
-
-export default
+// @connect(({ global, auth }) => {
+//   return {
+//     ...global,
+//     ...auth
+//   };
+// })
 class RouteComponent extends React.Component<any,any> {
   render() {
     return (
@@ -23,10 +27,14 @@ class RouteComponent extends React.Component<any,any> {
   }
 }
 
+export default connect(({ global, auth}:any)=>({
+      ...global,
+      ...auth
+    }))(RouteComponent)
+
+
 class AuthRoute extends React.Component <any,any> {
   render() {
-
-    return <PermissionRoute {...this.props} />;
     const { location, userInfo } = this.props;
     const { pathname, search } = location;
     // props 传递的不准 重新获取
