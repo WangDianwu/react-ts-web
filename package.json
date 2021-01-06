@@ -57,7 +57,7 @@
     "@types/classnames": "^2.2.10",
     "@types/react-router": "^5.1.8",
     "antd": "^4.3.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "connected-react-router": "^6.8.0",
     "dayjs": "^1.8.29",
     "eslint": "^7.4.0",
